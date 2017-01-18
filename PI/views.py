@@ -84,7 +84,7 @@ def twitter_link(request):
     # Step 1. Get a request token from Twitter.
     resp, content = client.request(request_token_url, "POST")
     if resp['status'] != '200':
-        print content
+        print(content)
         raise Exception("Invalid response from Twitter.")
 
     # Step 2. Store the request token in a session for later use.
@@ -110,7 +110,7 @@ def twitter_authenticated(request):
     # Step 2. Request the authorized access token from Twitter.
     resp, content = client.request(access_token_url, "POST", body=body)
     if resp['status'] != '200':
-        print content
+        print(content)
         raise Exception("Invalid response from Twitter.")
 
     access_token = dict(cgi.parse_qsl(content))
