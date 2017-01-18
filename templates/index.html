@@ -1,0 +1,8 @@
+
+
+{% block content %}
+
+<h3 style="float:left"><a href="{% url 'twitter_link' %}">Linkar cuenta de Twitter</a></h3>
+
+<form method="POST" action="{% url 'index' %}">{% csrf_token %}Buscar: <input type="text" name="card_id"></form>
+{% endblock %}

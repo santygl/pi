@@ -1,0 +1,39 @@
+{% block content %}
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+
+<STYLE type="text/css">
+		H1 {border-width: 1px; border: solid; padding: 8px 11px; text-align: center; color: blue; font: bold 24px/24px HelveticaNeue, Arial;}
+		.button {margin: 45px; border: 1px solid #dedede; border-radius: 3px; color: #555; display: inline-block; font: bold 12px/12px HelveticaNeue, Arial; padding: 8px 11px; text-decoration: none;}
+		table {font: bold 12px/12px HelveticaNeue, Arial; margin: 45px; width: 480px; text-align: left; border-collapse: collapse;}
+		td {padding: 8px; background: #e8edff; border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent;}
+</STYLE>
+
+<HEAD>
+	 <H1>Login</H1>
+</HEAD>
+
+<BODY>
+	<table>
+	<tr>
+		<td>{{ form.username.label_tag }}</td>
+		<td>{{ form.username }}</td>
+	</tr>
+	<tr>
+		<td>{{ form.password.label_tag }}</td>
+		<td>{{ form.password }}</td>
+	</tr>
+	</table>
+</BODY>
+
+<input type="submit" class="button" value="Login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+    <h4 style="float:left"><a href="{% url 'register' %}">Registrate</a></h4>
+
+{% endblock %}
